@@ -12,6 +12,7 @@ buildscript {
         room_version = '2.2.3'
         okhttp3_version = '4.4.0'
         retrofit_version = '2.7.2'
+        koin_version = '2.1.5'
     }
 
     repositories {

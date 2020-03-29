@@ -9,9 +9,11 @@ import kotlin.coroutines.CoroutineContext
  * @author sunfusheng
  * @since 2020/2/29
  */
-const val JOB_TAG = "com.sunfusheng.kotlin.JOB_TAG"
-
 open class RequestViewModel : ViewModel() {
+    companion object {
+        const val JOB_TAG = "com.sunfusheng.kotlin.JOB_TAG"
+    }
+
     private val mRequestStateMap by lazy { HashMap<String, MutableLiveData<RequestState<*>>>() }
 
     fun requestState(jobTag: String = JOB_TAG): MutableLiveData<RequestState<*>>? {

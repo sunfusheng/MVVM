@@ -1,4 +1,4 @@
-package com.sunfusheng.mvvm.architecture.livedatabus
+package com.sunfusheng.mvvm.architecture.bus
 
 /**
  * @author sunfusheng
