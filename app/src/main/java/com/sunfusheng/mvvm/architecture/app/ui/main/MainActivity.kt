@@ -1,5 +1,6 @@
 package com.sunfusheng.mvvm.architecture.app.ui.main
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.sunfusheng.StickyHeaderDecoration
@@ -22,7 +23,9 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         vRecyclerView.adapter = adapter
 
         adapter.setOnItemClickListener { _, item, _, _ ->
-
+            item.clazz?.run {
+                startActivity(Intent(this@MainActivity, item.clazz))
+            }
         }
     }
 }

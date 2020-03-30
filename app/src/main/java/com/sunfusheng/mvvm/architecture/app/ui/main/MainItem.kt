@@ -7,7 +7,7 @@ package com.sunfusheng.mvvm.architecture.app.ui.main
 @MainGroupDslMarker
 data class MainItem(
     var title: String,
-    var clazz: Class<Any>? = null
+    var clazz: Class<*>? = null
 )
 
 @DslMarker
@@ -21,11 +21,11 @@ annotation class MainGroupDataSourceDslMarker
 abstract class AbsMainGroup() {
     val list = ArrayList<MainItem>()
 
-    private fun <T : AbsMainGroup> addItem(chapter: T, init: MainItem.() -> Unit) {
-        if (chapter.list.isEmpty()) {
-            chapter.list.add(MainItem(getTitle()))
+    private fun <T : AbsMainGroup> addItem(group: T, init: MainItem.() -> Unit) {
+        if (group.list.isEmpty()) {
+            group.list.add(MainItem(getTitle()))
         }
-        chapter.list.add(MainItem(getTitle()).apply(init))
+        group.list.add(MainItem(getTitle()).apply(init))
     }
 
     protected abstract fun getTitle(): String
