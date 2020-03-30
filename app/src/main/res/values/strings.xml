@@ -1,3 +1,9 @@
 <resources>
+
     <string name="app_name">MVVM-Architecture</string>
+
+    <string name="title_basic_nav">Navigation基本使用</string>
+
+    <string name="transition_name_basic_nav_color">basic_nav_color</string>
+
 </resources>

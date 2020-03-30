@@ -1,5 +1,6 @@
 package com.sunfusheng.mvvm.architecture.app.ui.navigation.basic
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
@@ -14,8 +15,8 @@ class BasicDetailFragment : Fragment(R.layout.fragment_basic_detail) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        requireActivity().title = args.fruit.title
+        requireActivity().title = args.colorString
 
-        vIcon.setImageDrawable(args.fruit.drawable)
+        vRoot.setBackgroundColor(Color.parseColor(args.colorString))
     }
 }

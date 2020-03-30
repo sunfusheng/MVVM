@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/vColor"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:background="@color/md_orange_500"
+    android:gravity="center_vertical"
+    android:padding="16dp"
+    android:text="orange"
+    android:textColor="@android:color/white"
+    android:transitionName="@string/transition_name_basic_nav_color" />

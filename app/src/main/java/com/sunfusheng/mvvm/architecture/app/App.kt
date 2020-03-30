@@ -2,6 +2,7 @@ package com.sunfusheng.mvvm.architecture.app
 
 import android.app.Application
 import com.sunfusheng.mvvm.architecture.app.ui.main.MainViewModel
+import com.sunfusheng.mvvm.architecture.app.ui.navigation.basic.BasicNavViewModel
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidFileProperties
 import org.koin.android.ext.koin.androidLogger
@@ -30,6 +31,7 @@ class App : Application() {
 
 val viewModelModule = module {
     viewModel { MainViewModel() }
+    viewModel { BasicNavViewModel() }
 }
 
 val repositoryModule = module {

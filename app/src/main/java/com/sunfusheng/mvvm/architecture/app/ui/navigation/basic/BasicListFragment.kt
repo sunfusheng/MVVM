@@ -5,18 +5,17 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import com.sunfusheng.mvvm.architecture.app.R
 import kotlinx.android.synthetic.main.fragment_basic_list.*
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class BasicListFragment : Fragment(R.layout.fragment_basic_list) {
+
+    private val viewModel by viewModel<BasicNavViewModel>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        requireActivity().title = "樱桃"
+        requireActivity().title = getString(R.string.title_basic_nav)
 
-        val dataSource = ArrayList<BasicItem>()
-        for (i: Int in 1..20) {
-            dataSource.add(BasicItem("Cherry$i", resources.getDrawable(R.mipmap.cherry)))
-        }
-        vRecyclerView.adapter = BasicAdapter(dataSource)
+        vRecyclerView.adapter = BasicAdapter(viewModel.dataSource)
     }
 }
