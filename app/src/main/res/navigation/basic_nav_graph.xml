@@ -20,5 +20,9 @@
         android:id="@+id/basicDetailFragment"
         android:name="com.sunfusheng.mvvm.architecture.app.ui.navigation.basic.BasicDetailFragment"
         android:label="fragment_basic_detail"
-        tools:layout="@layout/fragment_basic_detail" />
+        tools:layout="@layout/fragment_basic_detail">
+        <argument
+            android:name="fruit"
+            app:argType="com.sunfusheng.mvvm.architecture.app.ui.navigation.basic.BasicItem" />
+    </fragment>
 </navigation>

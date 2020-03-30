@@ -11,8 +11,10 @@ class BasicListFragment : Fragment(R.layout.fragment_basic_list) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        requireActivity().title = "樱桃"
+
         val dataSource = ArrayList<BasicItem>()
-        for (i in 1..20) {
+        for (i: Int in 1..20) {
             dataSource.add(BasicItem("Cherry$i", resources.getDrawable(R.mipmap.cherry)))
         }
         vRecyclerView.adapter = BasicAdapter(dataSource)

@@ -6,29 +6,30 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.sunfusheng.mvvm.architecture.app.R
+import java.io.Serializable
 
 /**
  * @author sunfusheng
  * @since 2020/3/30
  */
-class BasicAdapter(val dataSource: List<BasicItem>?) :
+class BasicAdapter(private val dataSource: List<BasicItem>?) :
     RecyclerView.Adapter<BasicAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val vName: TextView = itemView.findViewById(R.id.name)
         private val vIcon: ImageView = itemView.findViewById(R.id.icon)
 
-        init {
-            itemView.setOnClickListener {
-
-            }
-        }
-
         fun bind(item: BasicItem) {
             vName.text = item.title
             vIcon.setImageDrawable(item.drawable)
+            itemView.setOnClickListener {
+                val direction =
+                    BasicListFragmentDirections.actionBasicListFragmentToBasicDetailFragment(item)
+                itemView.findNavController().navigate(direction)
+            }
         }
     }
 
@@ -37,7 +38,7 @@ class BasicAdapter(val dataSource: List<BasicItem>?) :
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val itemView =
+        val itemView: View =
             LayoutInflater.from(parent.context).inflate(R.layout.item_fruit, parent, false)
         return ViewHolder(itemView)
     }
@@ -47,4 +48,4 @@ class BasicAdapter(val dataSource: List<BasicItem>?) :
     }
 }
 
-data class BasicItem(val title: String, val drawable: Drawable)
+data class BasicItem(val title: String, val drawable: Drawable) : Serializable
