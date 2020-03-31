@@ -17,6 +17,6 @@ class BasicDetailFragment : Fragment(R.layout.fragment_basic_detail) {
 
         requireActivity().title = args.colorString
 
-        vRoot.setBackgroundColor(Color.parseColor(args.colorString))
+        vColor.setBackgroundColor(Color.parseColor(args.colorString))
     }
 }

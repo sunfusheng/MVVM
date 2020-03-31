@@ -1,2 +1,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.sunfusheng.mvvm.architecture" />
+    package="com.sunfusheng.mvvm.architecture">
+
+    <application>
+        <provider
+            android:name=".ArchitectureProvider"
+            android:authorities="${applicationId}.Architecture"
+            android:exported="false" />
+    </application>
+</manifest>

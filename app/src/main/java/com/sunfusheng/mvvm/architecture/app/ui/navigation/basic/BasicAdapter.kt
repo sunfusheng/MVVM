@@ -17,7 +17,21 @@ import com.sunfusheng.mvvm.architecture.app.R
 class BasicAdapter(private val dataSource: List<String>?) :
     RecyclerView.Adapter<BasicAdapter.ViewHolder>() {
 
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val inflater = LayoutInflater.from(parent.context)
+        val itemView = inflater.inflate(R.layout.item_color, parent, false)
+        return ViewHolder(itemView)
+    }
+
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        holder.bind(dataSource!![position])
+    }
+
+    override fun getItemCount(): Int {
+        return dataSource?.size ?: 0
+    }
+
+    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         private val vColor: TextView = itemView.findViewById(R.id.vColor)
 
         fun bind(colorString: String) {
@@ -34,19 +48,5 @@ class BasicAdapter(private val dataSource: List<String>?) :
                 itemView.findNavController().navigate(direction, extras)
             }
         }
-    }
-
-    override fun getItemCount(): Int {
-        return dataSource?.size ?: 0
-    }
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val itemView: View =
-            LayoutInflater.from(parent.context).inflate(R.layout.item_color, parent, false)
-        return ViewHolder(itemView)
-    }
-
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(dataSource!![position])
     }
 }
