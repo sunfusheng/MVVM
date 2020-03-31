@@ -2,13 +2,13 @@ package com.sunfusheng.mvvm.architecture.app.ui.main
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import com.sunfusheng.StickyHeaderDecoration
 import com.sunfusheng.mvvm.architecture.app.R
+import com.sunfusheng.mvvm.architecture.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class MainActivity : AppCompatActivity(R.layout.activity_main) {
+class MainActivity : BaseActivity(R.layout.activity_main) {
 
     private val viewModel: MainViewModel by viewModel()
 
