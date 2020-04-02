@@ -41,6 +41,8 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.2'
+
     implementation 'com.sunfusheng:GroupRecyclerViewAdapter:1.2.0'
     implementation 'com.sunfusheng:FirUpdater:1.3.0'
 
