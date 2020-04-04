@@ -1,8 +1,10 @@
 package com.sunfusheng.mvvm.architecture.app.ui.main
 
 import androidx.lifecycle.ViewModel
-import com.sunfusheng.mvvm.architecture.app.ui.navigation.BottomNavActivity
-import com.sunfusheng.mvvm.architecture.app.ui.navigation.basic.BasicNavActivity
+import com.sunfusheng.mvvm.architecture.app.R
+import com.sunfusheng.mvvm.architecture.app.ui.navigation.basic.BasicNavigationActivity
+import com.sunfusheng.mvvm.architecture.app.ui.navigation.bottom_navigation_view.BottomNavigationViewActivity
+import com.sunfusheng.mvvm.architecture.util.resources
 
 /**
  * @author sunfusheng
@@ -14,12 +16,12 @@ class MainViewModel : ViewModel() {
         mainGroupDataSource {
             navigationGroup {
                 item {
-                    title = "Navigation基本使用"
-                    clazz = BasicNavActivity::class.java
+                    title = resources.getString(R.string.title_basic_navigation)
+                    clazz = BasicNavigationActivity::class.java
                 }
                 item {
-                    title = "BottomNavigation"
-                    clazz = BottomNavActivity::class.java
+                    title = resources.getString(R.string.title_bottom_navigation_view)
+                    clazz = BottomNavigationViewActivity::class.java
                 }
             }
         }

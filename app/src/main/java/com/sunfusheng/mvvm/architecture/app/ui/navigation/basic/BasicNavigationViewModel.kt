@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
  * @author sunfusheng
  * @since 2020/3/30
  */
-class BasicNavViewModel : ViewModel() {
+class BasicNavigationViewModel : ViewModel() {
 
     val dataSource by lazy {
         val list = ArrayList<String>()
@@ -21,6 +21,4 @@ class BasicNavViewModel : ViewModel() {
         list.add("#e65100")
         list
     }
-
-
 }

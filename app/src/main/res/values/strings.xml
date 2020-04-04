@@ -2,7 +2,12 @@
 
     <string name="app_name">MVVM-Architecture</string>
 
-    <string name="title_basic_nav">Navigation基本使用</string>
+    <string name="tab_home">首页</string>
+    <string name="tab_explore">发现</string>
+    <string name="tab_user">我的</string>
+
+    <string name="title_basic_navigation">Navigation基本使用</string>
+    <string name="title_bottom_navigation_view">Navigation + BottomNavigationView</string>
 
     <string name="transition_name_basic_nav_color">basic_nav_color</string>
 

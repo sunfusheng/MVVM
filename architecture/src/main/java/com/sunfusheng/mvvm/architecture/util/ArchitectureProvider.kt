@@ -1,4 +1,4 @@
-package com.sunfusheng.mvvm.architecture
+package com.sunfusheng.mvvm.architecture.util
 
 import android.app.Application
 import android.content.ContentProvider

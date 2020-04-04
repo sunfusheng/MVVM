@@ -3,7 +3,7 @@
 
     <application>
         <provider
-            android:name=".ArchitectureProvider"
+            android:name=".util.ArchitectureProvider"
             android:authorities="${applicationId}.Architecture"
             android:exported="false" />
     </application>

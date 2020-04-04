@@ -7,4 +7,4 @@ import com.sunfusheng.mvvm.architecture.base.BaseActivity
  * @author sunfusheng
  * @since 2020/3/30
  */
-class BasicNavActivity : BaseActivity(R.layout.activity_basic_nav)
+class BasicNavigationActivity : BaseActivity(R.layout.activity_basic_navigation)

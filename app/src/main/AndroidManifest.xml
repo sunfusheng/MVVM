@@ -18,8 +18,8 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ui.navigation.basic.BasicNavActivity" />
-        <activity android:name=".ui.navigation.BottomNavActivity" />
+        <activity android:name=".ui.navigation.basic.BasicNavigationActivity" />
+        <activity android:name=".ui.navigation.bottom_navigation_view.BottomNavigationViewActivity" />
 
     </application>
 
