@@ -1,10 +1,16 @@
 package com.sunfusheng.mvvm.architecture.app.ui.navigation.bottom_navigation_view
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.google.android.material.bottomnavigation.BottomNavigationItemView
+import com.google.android.material.bottomnavigation.BottomNavigationMenuView
 import com.sunfusheng.mvvm.architecture.app.R
+import com.sunfusheng.mvvm.architecture.extension.gone
+import com.sunfusheng.mvvm.architecture.extension.visible
 import kotlinx.android.synthetic.main.fragment_bottom_navigation_view.*
 
 class BottomNavigationViewFragment : Fragment(R.layout.fragment_bottom_navigation_view) {
@@ -39,6 +45,8 @@ class BottomNavigationViewFragment : Fragment(R.layout.fragment_bottom_navigatio
     }
 
     private fun initBottomNavigationView() {
+        setUnreadCount(6)
+
         vBottomNavigationView.setOnNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.menu_item_home -> switchFragment(0)
@@ -52,5 +60,22 @@ class BottomNavigationViewFragment : Fragment(R.layout.fragment_bottom_navigatio
     private fun switchFragment(position: Int) {
         requireActivity().setTitle(fragments[position].first)
         vViewPager2.setCurrentItem(position, false)
+    }
+
+    private fun setUnreadCount(count: Int) {
+        val menuView: BottomNavigationMenuView =
+            vBottomNavigationView.getChildAt(0) as BottomNavigationMenuView
+        val itemView: BottomNavigationItemView =
+            menuView.getChildAt(1) as BottomNavigationItemView
+        val vBadgeView: View =
+            LayoutInflater.from(context).inflate(R.layout.layout_badge_view, menuView, false)
+        itemView.addView(vBadgeView)
+        val vUnreadCount: TextView = vBadgeView.findViewById(R.id.tv_count)
+        if (count <= 0) {
+            vUnreadCount.gone()
+        } else {
+            vUnreadCount.visible()
+            vUnreadCount.text = String.format("%s", if (count > 99) 99 else count)
+        }
     }
 }
