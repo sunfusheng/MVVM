@@ -28,9 +28,10 @@ open class BaseFragment(@LayoutRes val contentLayoutId: Int = 0) : Fragment(cont
         }
     }
 
+    // true: 拦截，false: 不拦截
     protected fun addBackPressedCallback(block: () -> Boolean) {
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
-            if (block.invoke()) {
+            if (!block.invoke()) {
                 isEnabled = childFragmentManager.backStackEntryCount > 0
                 if (isEnabled) {
                     childFragmentManager.popBackStackImmediate()
