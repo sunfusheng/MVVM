@@ -20,6 +20,7 @@ class BasicDetailFragment : BaseFragment(R.layout.fragment_basic_detail) {
 
         addBackPressedCallback {
             ToastUtil.show("拦截 BasicDetailFragment 返回", Toast.LENGTH_LONG)
+            true
         }
 
         vColor.setBackgroundColor(Color.parseColor(args.colorString))

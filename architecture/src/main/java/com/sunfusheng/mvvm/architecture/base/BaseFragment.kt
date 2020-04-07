@@ -28,14 +28,15 @@ open class BaseFragment(@LayoutRes val contentLayoutId: Int = 0) : Fragment(cont
         }
     }
 
-    protected fun addBackPressedCallback(block: (() -> Unit)?) {
+    protected fun addBackPressedCallback(block: () -> Boolean) {
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
-            block?.invoke()
-            isEnabled = childFragmentManager.backStackEntryCount > 0
-            if (isEnabled) {
-                childFragmentManager.popBackStackImmediate()
-            } else {
-                requireActivity().onBackPressedDispatcher.onBackPressed()
+            if (block.invoke()) {
+                isEnabled = childFragmentManager.backStackEntryCount > 0
+                if (isEnabled) {
+                    childFragmentManager.popBackStackImmediate()
+                } else {
+                    requireActivity().onBackPressedDispatcher.onBackPressed()
+                }
             }
         }
     }
