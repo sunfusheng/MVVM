@@ -3,7 +3,6 @@ package com.sunfusheng.mvvm.architecture.app.ui.navigation.basic
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.navigation.fragment.navArgs
 import com.sunfusheng.mvvm.architecture.app.R
 import com.sunfusheng.mvvm.architecture.base.BaseFragment
@@ -19,10 +18,15 @@ class BasicDetailFragment : BaseFragment(R.layout.fragment_basic_detail) {
         initActionBar(args.colorString)
 
         addBackPressedCallback {
-            ToastUtil.show("拦截 BasicDetailFragment 返回", Toast.LENGTH_LONG)
+            ToastUtil.show("addBackPressedCallback()")
             false
         }
 
         vColor.setBackgroundColor(Color.parseColor(args.colorString))
+    }
+
+    override fun onBackPressed(): Boolean {
+        ToastUtil.show("onBackPressed()")
+        return false
     }
 }

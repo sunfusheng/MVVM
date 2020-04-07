@@ -1,5 +1,6 @@
 package com.sunfusheng.mvvm.architecture.base
 
+import android.os.Bundle
 import androidx.activity.addCallback
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.ActionBar
@@ -10,7 +11,12 @@ import androidx.fragment.app.Fragment
  * @author sunfusheng
  * @since 2020/3/31
  */
-open class BaseFragment(@LayoutRes val contentLayoutId: Int = 0) : Fragment(contentLayoutId) {
+abstract class BaseFragment(@LayoutRes val contentLayoutId: Int = 0) : Fragment(contentLayoutId) {
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        addBackPressedCallback { onBackPressed() }
+    }
 
     protected fun initActionBar(
         title: String,
@@ -28,12 +34,21 @@ open class BaseFragment(@LayoutRes val contentLayoutId: Int = 0) : Fragment(cont
         }
     }
 
-    // true: 拦截，false: 不拦截
+    /**
+     * @return true: 拦截，false: 不拦截
+     */
+    open fun onBackPressed(): Boolean {
+        return false
+    }
+
+    /**
+     * @param block 返回true: 拦截，返回false: 不拦截
+     */
     protected fun addBackPressedCallback(block: () -> Boolean) {
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
             if (!block.invoke()) {
-                isEnabled = childFragmentManager.backStackEntryCount > 0
-                if (isEnabled) {
+                remove()
+                if (childFragmentManager.backStackEntryCount > 0) {
                     childFragmentManager.popBackStackImmediate()
                 } else {
                     requireActivity().onBackPressedDispatcher.onBackPressed()
