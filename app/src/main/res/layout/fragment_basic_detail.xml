@@ -6,6 +6,5 @@
     <TextView
         android:id="@+id/vColor"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:transitionName="@string/transition_name_basic_nav_color" />
+        android:layout_height="match_parent" />
 </FrameLayout>

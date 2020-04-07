@@ -9,6 +9,4 @@
     <string name="title_basic_navigation">Navigation基本使用</string>
     <string name="title_bottom_navigation_view">Navigation + BottomNavigationView</string>
 
-    <string name="transition_name_basic_nav_color">basic_nav_color</string>
-
 </resources>

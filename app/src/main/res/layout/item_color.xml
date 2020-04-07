@@ -7,5 +7,4 @@
     android:gravity="center_vertical"
     android:padding="16dp"
     android:text="orange"
-    android:textColor="@android:color/white"
-    android:transitionName="@string/transition_name_basic_nav_color" />
+    android:textColor="@android:color/white" />

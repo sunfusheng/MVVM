@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.recyclerview.widget.RecyclerView
 import com.sunfusheng.mvvm.architecture.app.R
 
@@ -42,10 +41,7 @@ class BasicAdapter(private val dataSource: List<String>?) :
                     BasicListFragmentDirections.actionBasicListFragmentToBasicDetailFragment(
                         colorString
                     )
-                val extras = FragmentNavigatorExtras(
-                    vColor to vColor.context.getString(R.string.transition_name_basic_nav_color)
-                )
-                itemView.findNavController().navigate(direction, extras)
+                itemView.findNavController().navigate(direction)
             }
         }
     }

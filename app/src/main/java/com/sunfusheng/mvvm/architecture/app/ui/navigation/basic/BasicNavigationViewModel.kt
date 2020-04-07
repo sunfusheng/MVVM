@@ -10,15 +10,15 @@ class BasicNavigationViewModel : ViewModel() {
 
     val dataSource by lazy {
         val list = ArrayList<String>()
-        list.add("#ffe0b2")
-        list.add("#ffcc80")
-        list.add("#ffb74d")
-        list.add("#ffa726")
-        list.add("#ff9800")
-        list.add("#fb8c00")
-        list.add("#f57c00")
-        list.add("#ef6c00")
-        list.add("#e65100")
+        list.add("#FFE0B2")
+        list.add("#FFCC80")
+        list.add("#FFB74D")
+        list.add("#FFA726")
+        list.add("#FF9800")
+        list.add("#FB8C00")
+        list.add("#F57C00")
+        list.add("#Ef6C00")
+        list.add("#E65100")
         list
     }
 }
