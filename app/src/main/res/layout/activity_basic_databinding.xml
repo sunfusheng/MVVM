@@ -4,8 +4,8 @@
     <data>
 
         <variable
-            name="author"
-            type="com.sunfusheng.mvvm.architecture.app.ui.databinding.Author" />
+            name="userInfo"
+            type="com.sunfusheng.mvvm.architecture.app.ui.databinding.UserInfo" />
     </data>
 
     <LinearLayout
@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="16dp"
-            android:text="@{author.name}" />
+            android:text="@{userInfo.name}" />
 
         <TextView
             android:id="@+id/vGitHubUrl"
@@ -26,7 +26,7 @@
             android:layout_height="wrap_content"
             android:autoLink="web"
             android:padding="16dp"
-            android:text="@{author.gitHubUrl}" />
+            android:text="@{userInfo.gitHubUrl}" />
 
     </LinearLayout>
 </layout>
