@@ -2,6 +2,7 @@ package com.sunfusheng.mvvm.architecture.app.ui.main
 
 import androidx.lifecycle.ViewModel
 import com.sunfusheng.mvvm.architecture.app.R
+import com.sunfusheng.mvvm.architecture.app.ui.databinding.BasicDataBindingActivity
 import com.sunfusheng.mvvm.architecture.app.ui.navigation.basic.BasicNavigationActivity
 import com.sunfusheng.mvvm.architecture.app.ui.navigation.bottom_navigation_view.BottomNavigationViewActivity
 import com.sunfusheng.mvvm.architecture.util.resources
@@ -22,6 +23,12 @@ class MainViewModel : ViewModel() {
                 item {
                     title = resources.getString(R.string.title_bottom_navigation_view)
                     clazz = BottomNavigationViewActivity::class.java
+                }
+            }
+            databindingGroup {
+                item {
+                    title = resources.getString(R.string.title_basic_databinding)
+                    clazz = BasicDataBindingActivity::class.java
                 }
             }
         }

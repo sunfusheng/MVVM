@@ -37,12 +37,20 @@ open class NavigationGroup : AbsMainGroup() {
     override fun getTitle() = "Navigation"
 }
 
+open class DataBindingGroup : AbsMainGroup() {
+    override fun getTitle() = "DataBinding"
+}
+
 @MainGroupDataSourceDslMarker
 open class MainGroupDataSource {
     open val lists = ArrayList<ArrayList<MainItem>>()
 
     fun navigationGroup(init: NavigationGroup.() -> Unit) {
         lists.add(NavigationGroup().apply(init).list)
+    }
+
+    fun databindingGroup(init: DataBindingGroup.() -> Unit) {
+        lists.add(DataBindingGroup().apply(init).list)
     }
 }
 
