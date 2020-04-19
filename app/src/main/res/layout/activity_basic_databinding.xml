@@ -27,6 +27,5 @@
             android:autoLink="web"
             android:padding="16dp"
             android:text="@{userInfo.gitHubUrl}" />
-
     </LinearLayout>
 </layout>

@@ -1,6 +1,6 @@
 buildscript {
     ext {
-        kotlin_version = "1.3.71"
+        kotlin_version = "1.3.72"
 
         compile_sdk_version = 29
         min_sdk_version = 19
@@ -23,7 +23,7 @@ buildscript {
     }
 
     dependencies {
-        classpath "com.android.tools.build:gradle:3.6.2"
+        classpath 'com.android.tools.build:gradle:3.6.3'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath "org.jetbrains.kotlin:kotlin-android-extensions:$kotlin_version"
         classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$navigation_version"

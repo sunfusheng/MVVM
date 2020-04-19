@@ -23,6 +23,7 @@ class BasicDataBindingActivity : BaseActivity() {
         val binding: ActivityBasicDatabindingBinding =
             DataBindingUtil.setContentView(this, R.layout.activity_basic_databinding)
 
+        binding.lifecycleOwner = this
         binding.userInfo = UserInfo("sunfusheng")
         mLifecycleHandler.postDelayed({
             binding.userInfo = UserInfo("Hi, my name is sunfusheng.")
