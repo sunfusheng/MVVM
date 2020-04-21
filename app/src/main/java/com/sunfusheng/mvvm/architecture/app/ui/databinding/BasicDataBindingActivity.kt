@@ -1,34 +1,50 @@
 package com.sunfusheng.mvvm.architecture.app.ui.databinding
 
 import android.os.Bundle
-import android.os.Looper
-import androidx.databinding.DataBindingUtil
+import androidx.databinding.ObservableField
+import androidx.lifecycle.MutableLiveData
+import com.sunfusheng.mvvm.architecture.app.BR
 import com.sunfusheng.mvvm.architecture.app.R
 import com.sunfusheng.mvvm.architecture.app.databinding.ActivityBasicDatabindingBinding
-import com.sunfusheng.mvvm.architecture.base.BaseActivity
-import com.sunfusheng.mvvm.architecture.lifecycle.LifecycleHandler
+import com.sunfusheng.mvvm.architecture.base.BaseDataBindingActivity
+import com.sunfusheng.mvvm.architecture.viewmodel.BaseViewModel
+import org.koin.androidx.viewmodel.ext.android.getViewModel
 
 /**
  * @author sunfusheng
  * @since 2020/4/14
  */
-class BasicDataBindingActivity : BaseActivity() {
-
-    private val mLifecycleHandler: LifecycleHandler = LifecycleHandler(this, Looper.getMainLooper())
+class BasicDataBindingActivity :
+    BaseDataBindingActivity<ActivityBasicDatabindingBinding, UserInfoViewModel>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initActionBar(getString(R.string.title_basic_databinding), showHomeAsUp = true)
-
-        val binding: ActivityBasicDatabindingBinding =
-            DataBindingUtil.setContentView(this, R.layout.activity_basic_databinding)
-
-        binding.lifecycleOwner = this
-        binding.userInfo = UserInfo("sunfusheng")
-        mLifecycleHandler.postDelayed({
-            binding.userInfo = UserInfo("Hi, my name is sunfusheng.")
-        }, 2000)
     }
+
+    override fun getLayoutId(): Int = R.layout.activity_basic_databinding
+
+    override fun getVariableId(): Int = BR.viewModel
+
+    override fun initViewModel(): UserInfoViewModel = getViewModel()
 }
 
-data class UserInfo(val name: String, val gitHubUrl: String = "https://github.com/sunfusheng")
+class UserInfoViewModel : BaseViewModel() {
+
+    companion object {
+        const val GITHUB = "https://github.com/sunfusheng"
+    }
+
+    val username = ObservableField<String>().apply {
+        set("sunfusheng")
+    }
+
+    val github = MutableLiveData<String>().apply {
+        value = GITHUB
+    }
+
+    fun change() {
+        username.set("Hi, my name is sunfusheng.")
+        github.value = "For more information to visit: \n$GITHUB."
+    }
+}

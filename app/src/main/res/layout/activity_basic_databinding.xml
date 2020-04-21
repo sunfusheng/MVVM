@@ -4,8 +4,8 @@
     <data>
 
         <variable
-            name="userInfo"
-            type="com.sunfusheng.mvvm.architecture.app.ui.databinding.UserInfo" />
+            name="viewModel"
+            type="com.sunfusheng.mvvm.architecture.app.ui.databinding.UserInfoViewModel" />
     </data>
 
     <LinearLayout
@@ -14,18 +14,26 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/vName"
+            android:id="@+id/vUserName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="16dp"
-            android:text="@{userInfo.name}" />
+            android:text="@{viewModel.username}" />
 
         <TextView
-            android:id="@+id/vGitHubUrl"
+            android:id="@+id/vGitHub"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:autoLink="web"
             android:padding="16dp"
-            android:text="@{userInfo.gitHubUrl}" />
+            android:text="@{viewModel.github}" />
+
+        <Button
+            android:id="@+id/vChange"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:onClick="@{() -> viewModel.change()}"
+            android:text="change" />
     </LinearLayout>
 </layout>
