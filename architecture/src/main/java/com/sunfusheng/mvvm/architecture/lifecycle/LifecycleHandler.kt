@@ -2,7 +2,6 @@ package com.sunfusheng.mvvm.architecture.lifecycle
 
 import android.os.Handler
 import android.os.Looper
-import android.util.Log
 import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleOwner
 
@@ -43,5 +42,6 @@ class LifecycleHandler : Handler, DefaultLifecycleObserver {
     override fun onDestroy(owner: LifecycleOwner) {
         removeCallbacksAndMessages(null)
         lifecycleOwner.lifecycle.removeObserver(this)
+        super.onDestroy(owner)
     }
 }

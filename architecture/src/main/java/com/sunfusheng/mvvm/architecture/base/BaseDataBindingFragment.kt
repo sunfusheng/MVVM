@@ -34,6 +34,7 @@ abstract class BaseDataBindingFragment<V : ViewDataBinding, VM : BaseViewModel> 
 
     private fun initViewDataBinding() {
         viewModel = initViewModel()
+        lifecycle.addObserver(viewModel)
         binding.lifecycleOwner = this
         binding.setVariable(getVariableId(), viewModel)
     }
