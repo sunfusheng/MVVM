@@ -1,9 +1,8 @@
 package com.sunfusheng.mvvm.architecture.permission
 
-import android.annotation.TargetApi
 import android.content.pm.PackageManager
-import android.os.Build
 import android.os.Bundle
+import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.MutableLiveData
 
@@ -24,7 +23,10 @@ internal class LivePermissionsFragment : Fragment() {
         retainInstance = true
     }
 
-    @TargetApi(Build.VERSION_CODES.M)
+    fun checkPermissions(permissions: Array<out String>) {
+        ActivityCompat.checkSelfPermission(requireContext(), permissions[0])
+    }
+
     fun requestPermissions(permissions: Array<out String>) {
         requestPermissions(permissions, PERMISSIONS_REQUEST_CODE)
     }

@@ -59,6 +59,14 @@ dependencies {
     api "androidx.room:room-runtime:$room_version"
     annotationProcessor "androidx.room:room-compiler:$room_version"
 
+    api "com.squareup.okhttp3:okhttp:$okhttp3_version"
+    api "com.squareup.okhttp3:logging-interceptor:$okhttp3_version"
+    api "com.squareup.retrofit2:retrofit:$retrofit_version"
+    api "com.squareup.retrofit2:converter-gson:$retrofit_version"
+    api "com.squareup.retrofit2:adapter-rxjava2:$retrofit_version"
+    api "com.squareup.retrofit2:converter-simplexml:$retrofit_version"
+    api "com.squareup.retrofit2:converter-simplexml:$retrofit_version"
+
     api "org.koin:koin-androidx-scope:$koin_version"
     api "org.koin:koin-androidx-viewmodel:$koin_version"
     api "org.koin:koin-androidx-fragment:$koin_version"

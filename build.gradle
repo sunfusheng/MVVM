@@ -11,8 +11,8 @@ buildscript {
         navigation_version = "2.2.2"
         lifecycle_version = "2.2.0"
         room_version = "2.2.5"
-        okhttp3_version = "4.4.0"
-        retrofit_version = "2.7.2"
+        okhttp3_version = "4.6.0"
+        retrofit_version = "2.8.1"
         koin_version = "2.1.5"
     }
 
