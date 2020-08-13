@@ -7,7 +7,7 @@ apply plugin: 'androidx.navigation.safeargs.kotlin'
 android {
     compileSdkVersion compile_sdk_version
     defaultConfig {
-        applicationId 'com.sunfusheng.mvvm.architecture.app'
+        applicationId 'com.sunfusheng.mvvm.app'
         minSdkVersion min_sdk_version
         targetSdkVersion target_sdk_version
         versionCode version_code
@@ -24,8 +24,9 @@ android {
         jvmTarget = '1.8'
     }
 
-    dataBinding {
-        enabled true
+    buildFeatures {
+        dataBinding = true
+//        viewBinding = true
     }
 
     lintOptions {
@@ -49,5 +50,5 @@ dependencies {
     implementation "com.sunfusheng:GroupRecyclerViewAdapter:1.2.0"
     implementation "com.sunfusheng:FirUpdater:1.3.0"
 
-    implementation project(":architecture")
+    implementation project(':mvvm')
 }

@@ -1,1 +1,1 @@
-# MVVM-Architecture
+# MVVM

@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/basicListFragment"
-        android:name="com.sunfusheng.mvvm.architecture.app.ui.navigation.basic.BasicListFragment"
+        android:name="com.sunfusheng.mvvm.app.ui.navigation.basic.BasicListFragment"
         android:label="fragment_basic_list"
         tools:layout="@layout/fragment_basic_list">
         <action
@@ -21,7 +21,7 @@
 
     <fragment
         android:id="@+id/basicDetailFragment"
-        android:name="com.sunfusheng.mvvm.architecture.app.ui.navigation.basic.BasicDetailFragment"
+        android:name="com.sunfusheng.mvvm.app.ui.navigation.basic.BasicDetailFragment"
         android:label="fragment_basic_detail"
         tools:layout="@layout/fragment_basic_detail">
         <argument
