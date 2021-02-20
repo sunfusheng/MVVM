@@ -8,7 +8,7 @@ import com.sunfusheng.mvvm.app.R
 import com.sunfusheng.mvvm.app.databinding.ActivityBasicDatabindingBinding
 import com.sunfusheng.mvvm.base.BaseDataBindingActivity
 import com.sunfusheng.mvvm.viewmodel.BaseViewModel
-import org.koin.androidx.viewmodel.ext.android.getViewModel
+import com.sunfusheng.mvvm.viewmodel.getViewModel
 
 /**
  * @author sunfusheng
@@ -26,7 +26,7 @@ class BasicDataBindingActivity :
 
     override fun getVariableId(): Int = BR.viewModel
 
-    override fun createViewModel(): UserInfoViewModel = getViewModel()
+    override fun createViewModel() = getViewModel(UserInfoViewModel::class.java)
 }
 
 class UserInfoViewModel : BaseViewModel() {

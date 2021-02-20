@@ -2,15 +2,15 @@ package com.sunfusheng.mvvm.app.ui.main
 
 import android.content.Intent
 import android.os.Bundle
+import androidx.activity.viewModels
 import com.sunfusheng.StickyHeaderDecoration
 import com.sunfusheng.mvvm.app.R
 import com.sunfusheng.mvvm.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_main.*
-import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : BaseActivity(R.layout.activity_main) {
 
-    private val viewModel: MainViewModel by viewModel()
+    private val viewModel by viewModels<MainViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

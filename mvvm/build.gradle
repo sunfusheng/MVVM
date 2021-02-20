@@ -19,12 +19,11 @@ android {
     }
 
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = JavaVersion.VERSION_1_8
     }
 
     buildFeatures {
         dataBinding = true
-//        viewBinding = true
     }
 
     buildTypes {
@@ -38,13 +37,13 @@ android {
 dependencies {
     api fileTree(dir: 'libs', include: ['*.jar'])
     api "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
-    api "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.5"
-    api "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.5"
-    api "androidx.core:core-ktx:1.3.1"
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.8"
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9"
+    api "androidx.core:core-ktx:1.3.2"
 
     api "androidx.appcompat:appcompat:1.2.0"
-    api "com.google.android.material:material:1.3.0-alpha02"
-    api "androidx.constraintlayout:constraintlayout:1.1.3"
+    api "com.google.android.material:material:1.2.1"
+    api "androidx.constraintlayout:constraintlayout:2.0.4"
     api "androidx.recyclerview:recyclerview:1.1.0"
     api "androidx.navigation:navigation-fragment-ktx:$navigation_version"
     api "androidx.navigation:navigation-ui-ktx:$navigation_version"
@@ -64,8 +63,4 @@ dependencies {
     api "com.squareup.retrofit2:adapter-rxjava2:$retrofit_version"
     api "com.squareup.retrofit2:converter-simplexml:$retrofit_version"
     api "com.squareup.retrofit2:converter-simplexml:$retrofit_version"
-
-    api "org.koin:koin-androidx-scope:$koin_version"
-    api "org.koin:koin-androidx-viewmodel:$koin_version"
-    api "org.koin:koin-androidx-fragment:$koin_version"
 }

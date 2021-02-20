@@ -21,12 +21,11 @@ android {
     }
 
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = JavaVersion.VERSION_1_8
     }
 
     buildFeatures {
         dataBinding = true
-//        viewBinding = true
     }
 
     lintOptions {
@@ -45,7 +44,7 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    debugImplementation "com.squareup.leakcanary:leakcanary-android:2.2"
+    debugImplementation "com.squareup.leakcanary:leakcanary-android:2.5"
 
     implementation "com.sunfusheng:GroupRecyclerViewAdapter:1.2.0"
     implementation "com.sunfusheng:FirUpdater:1.3.0"
