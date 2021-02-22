@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
+import com.sunfusheng.mvvm.BR
 import com.sunfusheng.mvvm.viewmodel.BaseViewModel
 
 /**
@@ -17,19 +18,18 @@ abstract class BaseDataBindingActivity<V : ViewDataBinding, VM : BaseViewModel> 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        initViewDataBindingOnCreate()
+        initDataBindingOnCreate()
     }
 
-    private fun initViewDataBindingOnCreate() {
+    private fun initDataBindingOnCreate() {
         binding = DataBindingUtil.setContentView(this, getLayoutId())
         viewModel = createViewModel()
         binding.lifecycleOwner = this
         lifecycle.addObserver(viewModel)
-        binding.setVariable(getVariableId(), viewModel)
+        binding.setVariable(BR.viewModel, viewModel)
     }
 
     @LayoutRes
     abstract fun getLayoutId(): Int
-    abstract fun getVariableId(): Int
     abstract fun createViewModel(): VM
 }

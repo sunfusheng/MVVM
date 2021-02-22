@@ -1,17 +1,17 @@
 package com.sunfusheng.mvvm.app.ui.main
 
-import androidx.lifecycle.ViewModel
 import com.sunfusheng.mvvm.app.R
 import com.sunfusheng.mvvm.app.ui.databinding.BasicDataBindingActivity
 import com.sunfusheng.mvvm.app.ui.navigation.basic.BasicNavigationActivity
 import com.sunfusheng.mvvm.app.ui.navigation.bottom_navigation_view.BottomNavigationViewActivity
 import com.sunfusheng.mvvm.util.resources
+import com.sunfusheng.mvvm.viewmodel.BaseViewModel
 
 /**
  * @author sunfusheng
  * @since 2020/3/29
  */
-class MainViewModel : ViewModel() {
+class MainViewModel : BaseViewModel() {
 
     val dataSource by lazy {
         mainGroupDataSource {

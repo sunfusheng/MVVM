@@ -5,11 +5,13 @@ import android.os.Bundle
 import android.view.View
 import androidx.navigation.fragment.navArgs
 import com.sunfusheng.mvvm.app.R
-import com.sunfusheng.mvvm.base.BaseFragment
+import com.sunfusheng.mvvm.app.databinding.FragmentBasicDetailBinding
+import com.sunfusheng.mvvm.base.BaseDataBindingFragment
 import com.sunfusheng.mvvm.util.ToastUtil
-import kotlinx.android.synthetic.main.fragment_basic_detail.*
+import com.sunfusheng.mvvm.viewmodel.BaseViewModel
+import com.sunfusheng.mvvm.viewmodel.getViewModel
 
-class BasicDetailFragment : BaseFragment(R.layout.fragment_basic_detail) {
+class BasicDetailFragment : BaseDataBindingFragment<FragmentBasicDetailBinding, BaseViewModel>() {
 
     private val args: BasicDetailFragmentArgs by navArgs()
 
@@ -22,11 +24,15 @@ class BasicDetailFragment : BaseFragment(R.layout.fragment_basic_detail) {
             false
         }
 
-        vColor.setBackgroundColor(Color.parseColor(args.colorString))
+        binding.vColor.setBackgroundColor(Color.parseColor(args.colorString))
     }
 
     override fun onBackPressed(): Boolean {
         ToastUtil.show("onBackPressed()")
         return false
     }
+
+    override fun getLayoutId() = R.layout.fragment_basic_detail
+
+    override fun createViewModel() = getViewModel(BaseViewModel::class.java)
 }

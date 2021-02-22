@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
+import com.sunfusheng.mvvm.BR
 import com.sunfusheng.mvvm.viewmodel.BaseViewModel
 
 /**
@@ -36,11 +37,10 @@ abstract class BaseDataBindingFragment<V : ViewDataBinding, VM : BaseViewModel> 
         viewModel = createViewModel()
         lifecycle.addObserver(viewModel)
         binding.lifecycleOwner = this
-        binding.setVariable(getVariableId(), viewModel)
+        binding.setVariable(BR.viewModel, viewModel)
     }
 
     @LayoutRes
     abstract fun getLayoutId(): Int
-    abstract fun getVariableId(): Int
     abstract fun createViewModel(): VM
 }

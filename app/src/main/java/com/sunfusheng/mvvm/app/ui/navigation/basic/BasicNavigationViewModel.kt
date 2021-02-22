@@ -1,12 +1,12 @@
 package com.sunfusheng.mvvm.app.ui.navigation.basic
 
-import androidx.lifecycle.ViewModel
+import com.sunfusheng.mvvm.viewmodel.BaseViewModel
 
 /**
  * @author sunfusheng
  * @since 2020/3/30
  */
-class BasicNavigationViewModel : ViewModel() {
+class BasicNavigationViewModel : BaseViewModel() {
 
     val dataSource by lazy {
         val list = ArrayList<String>()

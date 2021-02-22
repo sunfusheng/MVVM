@@ -1,8 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.recyclerview.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/vRecyclerView"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/background_common"
-    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.sunfusheng.mvvm.app.ui.main.MainViewModel" />
+    </data>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/vRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background_common"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+</layout>

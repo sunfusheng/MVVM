@@ -3,7 +3,6 @@ package com.sunfusheng.mvvm.app.ui.databinding
 import android.os.Bundle
 import androidx.databinding.ObservableField
 import androidx.lifecycle.MutableLiveData
-import com.sunfusheng.mvvm.app.BR
 import com.sunfusheng.mvvm.app.R
 import com.sunfusheng.mvvm.app.databinding.ActivityBasicDatabindingBinding
 import com.sunfusheng.mvvm.base.BaseDataBindingActivity
@@ -23,8 +22,6 @@ class BasicDataBindingActivity :
     }
 
     override fun getLayoutId(): Int = R.layout.activity_basic_databinding
-
-    override fun getVariableId(): Int = BR.viewModel
 
     override fun createViewModel() = getViewModel(UserInfoViewModel::class.java)
 }

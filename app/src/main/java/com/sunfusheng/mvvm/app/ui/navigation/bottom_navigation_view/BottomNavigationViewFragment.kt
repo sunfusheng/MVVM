@@ -9,11 +9,15 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.google.android.material.bottomnavigation.BottomNavigationItemView
 import com.google.android.material.bottomnavigation.BottomNavigationMenuView
 import com.sunfusheng.mvvm.app.R
+import com.sunfusheng.mvvm.app.databinding.FragmentBottomNavigationViewBinding
+import com.sunfusheng.mvvm.base.BaseDataBindingFragment
 import com.sunfusheng.mvvm.extension.gone
 import com.sunfusheng.mvvm.extension.visible
-import kotlinx.android.synthetic.main.fragment_bottom_navigation_view.*
+import com.sunfusheng.mvvm.viewmodel.BaseViewModel
+import com.sunfusheng.mvvm.viewmodel.getViewModel
 
-class BottomNavigationViewFragment : Fragment(R.layout.fragment_bottom_navigation_view) {
+class BottomNavigationViewFragment :
+    BaseDataBindingFragment<FragmentBottomNavigationViewBinding, BaseViewModel>() {
 
     private val fragments = arrayListOf<Pair<Int, Fragment>>()
     private val homeFragment by lazy { R.string.tab_home to HomeFragment() }
@@ -37,8 +41,8 @@ class BottomNavigationViewFragment : Fragment(R.layout.fragment_bottom_navigatio
     }
 
     private fun initViewPager() {
-        vViewPager2.isUserInputEnabled = false
-        vViewPager2.adapter = object : FragmentStateAdapter(this) {
+        binding.vViewPager2.isUserInputEnabled = false
+        binding.vViewPager2.adapter = object : FragmentStateAdapter(this) {
             override fun getItemCount() = fragments.size
             override fun createFragment(position: Int) = fragments[position].second
         }
@@ -47,7 +51,7 @@ class BottomNavigationViewFragment : Fragment(R.layout.fragment_bottom_navigatio
     private fun initBottomNavigationView() {
         setUnreadCount(6)
 
-        vBottomNavigationView.setOnNavigationItemSelectedListener {
+        binding.vBottomNavigationView.setOnNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.menu_item_home -> switchFragment(0)
                 R.id.menu_item_explore -> switchFragment(1)
@@ -59,12 +63,12 @@ class BottomNavigationViewFragment : Fragment(R.layout.fragment_bottom_navigatio
 
     private fun switchFragment(position: Int) {
         requireActivity().setTitle(fragments[position].first)
-        vViewPager2.setCurrentItem(position, false)
+        binding.vViewPager2.setCurrentItem(position, false)
     }
 
     private fun setUnreadCount(count: Int) {
         val menuView: BottomNavigationMenuView =
-            vBottomNavigationView.getChildAt(0) as BottomNavigationMenuView
+            binding.vBottomNavigationView.getChildAt(0) as BottomNavigationMenuView
         val itemView: BottomNavigationItemView =
             menuView.getChildAt(1) as BottomNavigationItemView
         val vBadgeView: View =
@@ -78,4 +82,8 @@ class BottomNavigationViewFragment : Fragment(R.layout.fragment_bottom_navigatio
             vUnreadCount.text = String.format("%s", if (count > 99) 99 else count)
         }
     }
+
+    override fun getLayoutId() = R.layout.fragment_bottom_navigation_view
+
+    override fun createViewModel() = getViewModel(BaseViewModel::class.java)
 }
