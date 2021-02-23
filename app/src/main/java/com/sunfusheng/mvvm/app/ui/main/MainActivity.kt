@@ -17,7 +17,7 @@ class MainActivity : BaseDataBindingActivity<ActivityMainBinding, MainViewModel>
 
     override fun getLayoutId() = R.layout.activity_main
 
-    override fun createViewModel() = getViewModel(MainViewModel::class.java)
+    override fun createViewModel(): MainViewModel = getViewModel()
 
     private fun loadDataSource() {
         binding.vRecyclerView.addItemDecoration(StickyHeaderDecoration())

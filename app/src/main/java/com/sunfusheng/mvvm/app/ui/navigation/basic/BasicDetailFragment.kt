@@ -3,6 +3,7 @@ package com.sunfusheng.mvvm.app.ui.navigation.basic
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.sunfusheng.mvvm.app.R
 import com.sunfusheng.mvvm.app.databinding.FragmentBasicDetailBinding
@@ -33,6 +34,6 @@ class BasicDetailFragment : BaseDataBindingFragment<FragmentBasicDetailBinding, 
     }
 
     override fun getLayoutId() = R.layout.fragment_basic_detail
+    override fun createViewModel(): BaseViewModel = getViewModel()
 
-    override fun createViewModel() = getViewModel(BaseViewModel::class.java)
 }

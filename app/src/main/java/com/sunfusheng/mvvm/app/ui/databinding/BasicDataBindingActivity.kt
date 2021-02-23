@@ -23,7 +23,7 @@ class BasicDataBindingActivity :
 
     override fun getLayoutId(): Int = R.layout.activity_basic_databinding
 
-    override fun createViewModel() = getViewModel(UserInfoViewModel::class.java)
+    override fun createViewModel(): UserInfoViewModel = getViewModel()
 }
 
 class UserInfoViewModel : BaseViewModel() {

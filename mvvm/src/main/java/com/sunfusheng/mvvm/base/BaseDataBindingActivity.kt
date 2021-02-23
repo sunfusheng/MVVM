@@ -2,6 +2,7 @@ package com.sunfusheng.mvvm.base
 
 import android.os.Bundle
 import androidx.annotation.LayoutRes
+import androidx.databinding.Bindable
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import com.sunfusheng.mvvm.BR

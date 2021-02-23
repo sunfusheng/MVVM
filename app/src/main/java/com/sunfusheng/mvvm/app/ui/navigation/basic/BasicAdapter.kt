@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.sunfusheng.mvvm.app.R
@@ -13,7 +14,7 @@ import com.sunfusheng.mvvm.app.R
  * @author sunfusheng
  * @since 2020/3/30
  */
-class BasicAdapter(private val dataSource: List<String>?) :
+class BasicAdapter(val dataSource: List<String>) :
     RecyclerView.Adapter<BasicAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -23,11 +24,11 @@ class BasicAdapter(private val dataSource: List<String>?) :
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(dataSource!![position])
+        holder.bind(dataSource[position])
     }
 
     override fun getItemCount(): Int {
-        return dataSource?.size ?: 0
+        return dataSource.size
     }
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {

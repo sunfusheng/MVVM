@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.google.android.material.bottomnavigation.BottomNavigationItemView
 import com.google.android.material.bottomnavigation.BottomNavigationMenuView
@@ -85,5 +86,5 @@ class BottomNavigationViewFragment :
 
     override fun getLayoutId() = R.layout.fragment_bottom_navigation_view
 
-    override fun createViewModel() = getViewModel(BaseViewModel::class.java)
+    override fun createViewModel(): BaseViewModel = getViewModel()
 }

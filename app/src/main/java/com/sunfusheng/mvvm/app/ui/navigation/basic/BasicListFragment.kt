@@ -12,7 +12,7 @@ class BasicListFragment :
 
     override fun getLayoutId() = R.layout.fragment_basic_list
 
-    override fun createViewModel() = getViewModel(BasicNavigationViewModel::class.java)
+    override fun createViewModel(): BasicNavigationViewModel = getViewModel()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
