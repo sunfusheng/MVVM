@@ -3,16 +3,13 @@ package com.sunfusheng.mvvm.app.ui.navigation.basic
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
-import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.sunfusheng.mvvm.app.R
 import com.sunfusheng.mvvm.app.databinding.FragmentBasicDetailBinding
-import com.sunfusheng.mvvm.base.BaseDataBindingFragment
+import com.sunfusheng.mvvm.base.BaseDBFragment
 import com.sunfusheng.mvvm.util.ToastUtil
-import com.sunfusheng.mvvm.viewmodel.BaseViewModel
-import com.sunfusheng.mvvm.viewmodel.getViewModel
 
-class BasicDetailFragment : BaseDataBindingFragment<FragmentBasicDetailBinding, BaseViewModel>() {
+class BasicDetailFragment : BaseDBFragment<FragmentBasicDetailBinding>() {
 
     private val args: BasicDetailFragmentArgs by navArgs()
 
@@ -34,6 +31,5 @@ class BasicDetailFragment : BaseDataBindingFragment<FragmentBasicDetailBinding, 
     }
 
     override fun getLayoutId() = R.layout.fragment_basic_detail
-    override fun createViewModel(): BaseViewModel = getViewModel()
 
 }

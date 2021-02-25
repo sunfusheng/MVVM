@@ -5,20 +5,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
-import androidx.databinding.Bindable
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
-import com.sunfusheng.mvvm.BR
-import com.sunfusheng.mvvm.viewmodel.BaseViewModel
 
 /**
  * @author sunfusheng
  * @since 2020/4/20
  */
-abstract class BaseDataBindingFragment<V : ViewDataBinding, VM : BaseViewModel> : BaseFragment() {
+abstract class BaseDBFragment<V : ViewDataBinding> : BaseFragment() {
 
     lateinit var binding: V
-    lateinit var viewModel: VM
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -26,22 +22,11 @@ abstract class BaseDataBindingFragment<V : ViewDataBinding, VM : BaseViewModel> 
         savedInstanceState: Bundle?
     ): View? {
         binding = DataBindingUtil.inflate(inflater, getLayoutId(), container, false)
-        return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        initViewDataBinding()
-    }
-
-    private fun initViewDataBinding() {
-        viewModel = createViewModel()
-        lifecycle.addObserver(viewModel)
         binding.lifecycleOwner = this
-        binding.setVariable(BR.viewModel, viewModel)
+        return binding.root
     }
 
     @LayoutRes
     abstract fun getLayoutId(): Int
-    abstract fun createViewModel(): VM
+
 }

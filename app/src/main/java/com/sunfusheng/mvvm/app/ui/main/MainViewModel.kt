@@ -1,7 +1,7 @@
 package com.sunfusheng.mvvm.app.ui.main
 
 import com.sunfusheng.mvvm.app.R
-import com.sunfusheng.mvvm.app.ui.databinding.BasicDataBindingActivity
+import com.sunfusheng.mvvm.app.ui.databinding.BasicDBVMActivity
 import com.sunfusheng.mvvm.app.ui.navigation.basic.BasicNavigationActivity
 import com.sunfusheng.mvvm.app.ui.navigation.bottom_navigation_view.BottomNavigationViewActivity
 import com.sunfusheng.mvvm.util.resources
@@ -27,8 +27,8 @@ class MainViewModel : BaseViewModel() {
             }
             databindingGroup {
                 item {
-                    title = resources.getString(R.string.title_basic_databinding)
-                    clazz = BasicDataBindingActivity::class.java
+                    title = resources.getString(R.string.title_oneway_databinding)
+                    clazz = BasicDBVMActivity::class.java
                 }
             }
         }

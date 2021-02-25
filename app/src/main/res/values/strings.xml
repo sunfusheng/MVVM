@@ -9,6 +9,6 @@
     <string name="title_basic_navigation">Navigation基本使用</string>
     <string name="title_bottom_navigation_view">Navigation + BottomNavigationView</string>
 
-    <string name="title_basic_databinding">DataBinding基本使用</string>
+    <string name="title_oneway_databinding">DataBinding单向绑定</string>
 
 </resources>

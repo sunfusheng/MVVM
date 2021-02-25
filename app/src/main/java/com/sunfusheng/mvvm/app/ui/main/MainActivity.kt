@@ -3,21 +3,18 @@ package com.sunfusheng.mvvm.app.ui.main
 import android.content.Intent
 import android.os.Bundle
 import com.sunfusheng.StickyHeaderDecoration
+import com.sunfusheng.mvvm.app.BR
 import com.sunfusheng.mvvm.app.R
 import com.sunfusheng.mvvm.app.databinding.ActivityMainBinding
-import com.sunfusheng.mvvm.base.BaseDataBindingActivity
+import com.sunfusheng.mvvm.base.BaseDBVMActivity
 import com.sunfusheng.mvvm.viewmodel.getViewModel
 
-class MainActivity : BaseDataBindingActivity<ActivityMainBinding, MainViewModel>() {
+class MainActivity : BaseDBVMActivity<ActivityMainBinding, MainViewModel>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         loadDataSource()
     }
-
-    override fun getLayoutId() = R.layout.activity_main
-
-    override fun createViewModel(): MainViewModel = getViewModel()
 
     private fun loadDataSource() {
         binding.vRecyclerView.addItemDecoration(StickyHeaderDecoration())
@@ -30,4 +27,10 @@ class MainActivity : BaseDataBindingActivity<ActivityMainBinding, MainViewModel>
             }
         }
     }
+
+    override fun getLayoutId() = R.layout.activity_main
+
+    override fun createViewModel(): MainViewModel = getViewModel()
+
+    override fun getVariableId() = BR.viewModel
 }

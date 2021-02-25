@@ -23,7 +23,7 @@
 
         <activity android:name=".ui.navigation.basic.BasicNavigationActivity" />
         <activity android:name=".ui.navigation.bottom_navigation_view.BottomNavigationViewActivity" />
-        <activity android:name=".ui.databinding.BasicDataBindingActivity" />
+        <activity android:name=".ui.databinding.BasicDBVMActivity" />
 
     </application>
 
