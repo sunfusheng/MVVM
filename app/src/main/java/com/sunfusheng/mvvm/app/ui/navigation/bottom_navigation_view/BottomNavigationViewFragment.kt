@@ -8,17 +8,13 @@ import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.google.android.material.bottomnavigation.BottomNavigationItemView
 import com.google.android.material.bottomnavigation.BottomNavigationMenuView
-import com.sunfusheng.mvvm.app.BR
 import com.sunfusheng.mvvm.app.R
 import com.sunfusheng.mvvm.app.databinding.FragmentBottomNavigationViewBinding
-import com.sunfusheng.mvvm.base.BaseDBVMFragment
+import com.sunfusheng.mvvm.base.BaseDBFragment
 import com.sunfusheng.mvvm.extension.gone
 import com.sunfusheng.mvvm.extension.visible
-import com.sunfusheng.mvvm.viewmodel.BaseViewModel
-import com.sunfusheng.mvvm.viewmodel.getViewModel
 
-class BottomNavigationViewFragment :
-    BaseDBVMFragment<FragmentBottomNavigationViewBinding, BaseViewModel>() {
+class BottomNavigationViewFragment : BaseDBFragment<FragmentBottomNavigationViewBinding>() {
 
     private val fragments = arrayListOf<Pair<Int, Fragment>>()
     private val homeFragment by lazy { R.string.tab_home to HomeFragment() }
@@ -86,7 +82,4 @@ class BottomNavigationViewFragment :
 
     override fun getLayoutId() = R.layout.fragment_bottom_navigation_view
 
-    override fun createViewModel(): BaseViewModel = getViewModel()
-
-    override fun getVariableId() = BR.viewModel
 }

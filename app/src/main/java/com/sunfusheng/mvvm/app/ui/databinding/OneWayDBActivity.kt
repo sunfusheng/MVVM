@@ -14,7 +14,7 @@ import com.sunfusheng.mvvm.viewmodel.getViewModel
  * @author sunfusheng
  * @since 2020/4/14
  */
-class BasicDBVMActivity : BaseDBVMActivity<ActivityOnewayDatabindingBinding, UserInfoViewModel>() {
+class OneWayDBActivity : BaseDBVMActivity<ActivityOnewayDatabindingBinding, UserInfoViewModel>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

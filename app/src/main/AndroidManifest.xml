@@ -22,8 +22,14 @@
         </activity>
 
         <activity android:name=".ui.navigation.basic.BasicNavigationActivity" />
+
         <activity android:name=".ui.navigation.bottom_navigation_view.BottomNavigationViewActivity" />
-        <activity android:name=".ui.databinding.BasicDBVMActivity" />
+
+        <activity android:name=".ui.databinding.OneWayDBActivity" />
+
+        <activity android:name=".ui.databinding.TwoWayDBActivity" />
+
+        <activity android:name=".ui.databinding.BindingAdapterRecyclerViewDBActivity" />
 
     </application>
 

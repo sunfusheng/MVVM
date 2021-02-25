@@ -9,6 +9,8 @@
     <string name="title_basic_navigation">Navigation基本使用</string>
     <string name="title_bottom_navigation_view">Navigation + BottomNavigationView</string>
 
-    <string name="title_oneway_databinding">DataBinding单向绑定</string>
+    <string name="title_oneway_databinding">单向绑定</string>
+    <string name="title_twoway_databinding">双向绑定</string>
+    <string name="title_bindingadapter_recyclerview_databinding">BindingAdapter + RecyclerView</string>
 
 </resources>

@@ -6,6 +6,7 @@ import com.sunfusheng.mvvm.app.BR
 import com.sunfusheng.mvvm.app.R
 import com.sunfusheng.mvvm.app.databinding.FragmentBasicListBinding
 import com.sunfusheng.mvvm.base.BaseDBVMFragment
+import com.sunfusheng.mvvm.viewmodel.BaseViewModel
 import com.sunfusheng.mvvm.viewmodel.getViewModel
 
 class BasicListFragment : BaseDBVMFragment<FragmentBasicListBinding, BasicNavigationViewModel>() {
@@ -22,4 +23,21 @@ class BasicListFragment : BaseDBVMFragment<FragmentBasicListBinding, BasicNaviga
     override fun createViewModel(): BasicNavigationViewModel = getViewModel()
 
     override fun getVariableId() = BR.viewModel
+}
+
+class BasicNavigationViewModel : BaseViewModel() {
+
+    val dataSource by lazy {
+        val list = ArrayList<String>()
+        list.add("#FFE0B2")
+        list.add("#FFCC80")
+        list.add("#FFB74D")
+        list.add("#FFA726")
+        list.add("#FF9800")
+        list.add("#FB8C00")
+        list.add("#F57C00")
+        list.add("#Ef6C00")
+        list.add("#E65100")
+        list
+    }
 }
