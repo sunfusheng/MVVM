@@ -20,7 +20,9 @@
             android:orientation="horizontal">
 
             <ImageView
-                image="@{user.avatar}"
+                error="@{@color/md_red_300}"
+                imageUrl="@{user.avatar}"
+                placeholder="@{@color/md_grey_300}"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_margin="16dp"

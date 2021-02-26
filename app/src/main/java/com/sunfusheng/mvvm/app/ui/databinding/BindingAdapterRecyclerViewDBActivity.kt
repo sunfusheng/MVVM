@@ -3,7 +3,9 @@ package com.sunfusheng.mvvm.app.ui.databinding
 import android.os.Bundle
 import com.sunfusheng.mvvm.adapter.BaseDataBindingAdapter
 import com.sunfusheng.mvvm.app.BR
+import com.sunfusheng.mvvm.app.Charlie_Munger_Avatar
 import com.sunfusheng.mvvm.app.R
+import com.sunfusheng.mvvm.app.Warren_Buffett_Avatar
 import com.sunfusheng.mvvm.app.databinding.ActivityBaRvDatabindingBinding
 import com.sunfusheng.mvvm.app.databinding.ItemBindingadapterBinding
 import com.sunfusheng.mvvm.base.BaseDBVMActivity
@@ -38,18 +40,8 @@ class BindingAdapterTestVM : BaseViewModel() {
 
     val data by lazy {
         val list = mutableListOf<User>()
-        list.add(
-            User(
-                "巴菲特",
-                "https://gimg2.baidu.com/image_search/src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20181019%2F8216a9ce2aa840f18a369553f4a8980c.jpeg&refer=http%3A%2F%2F5b0988e595225.cdn.sohucs.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1616847790&t=72cd4fc74db672a2ad26b4932bea0ec0"
-            )
-        )
-        list.add(
-            User(
-                "查理芒格",
-                "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg3.gelonghui.com%2F9f8cd-bf1f796b-b477-4582-8256-2d11c1c8c109.png%3Fx-oss-process%3Dstyle%2Fwm&refer=http%3A%2F%2Fimg3.gelonghui.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1616847934&t=9606ff3c954979500cbd653a56d308a4"
-            )
-        )
+        list.add(User("沃伦·巴菲特", Warren_Buffett_Avatar))
+        list.add(User("查理·芒格", Charlie_Munger_Avatar))
         list
     }
 }
