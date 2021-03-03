@@ -4,13 +4,13 @@ import android.os.Bundle
 import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
-import com.sunfusheng.mvvm.viewmodel.BaseViewModel
+import androidx.lifecycle.ViewModel
 
 /**
  * @author sunfusheng
  * @since 2020/4/20
  */
-abstract class BaseDBVMActivity<V : ViewDataBinding, VM : BaseViewModel> : BaseActivity() {
+abstract class BaseDBVMActivity<V : ViewDataBinding, VM : ViewModel> : BaseActivity() {
 
     lateinit var binding: V
     lateinit var viewModel: VM

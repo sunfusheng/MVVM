@@ -7,13 +7,13 @@ import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
-import com.sunfusheng.mvvm.viewmodel.BaseViewModel
+import androidx.lifecycle.ViewModel
 
 /**
  * @author sunfusheng
  * @since 2020/4/20
  */
-abstract class BaseDBVMFragment<V : ViewDataBinding, VM : BaseViewModel> : BaseFragment() {
+abstract class BaseDBVMFragment<V : ViewDataBinding, VM : ViewModel> : BaseFragment() {
 
     lateinit var binding: V
     lateinit var viewModel: VM
