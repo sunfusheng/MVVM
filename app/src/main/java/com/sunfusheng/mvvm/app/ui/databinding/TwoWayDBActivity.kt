@@ -5,7 +5,7 @@ import androidx.databinding.ObservableField
 import com.sunfusheng.mvvm.app.BR
 import com.sunfusheng.mvvm.app.R
 import com.sunfusheng.mvvm.app.databinding.ActivityTwowayDatabindingBinding
-import com.sunfusheng.mvvm.base.BaseDBVMActivity
+import com.sunfusheng.mvvm.base.BaseDataBindingVMActivity
 import com.sunfusheng.mvvm.viewmodel.BaseViewModel
 import com.sunfusheng.mvvm.viewmodel.getViewModel
 
@@ -13,7 +13,7 @@ import com.sunfusheng.mvvm.viewmodel.getViewModel
  * @author sunfusheng
  * @since  2021/02/25
  */
-class TwoWayDBActivity : BaseDBVMActivity<ActivityTwowayDatabindingBinding, TwowayTestVM>() {
+class TwoWayDBActivity : BaseDataBindingVMActivity<ActivityTwowayDatabindingBinding, TwowayTestVM>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

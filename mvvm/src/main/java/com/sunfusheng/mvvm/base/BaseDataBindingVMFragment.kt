@@ -13,7 +13,7 @@ import androidx.lifecycle.ViewModel
  * @author sunfusheng
  * @since 2020/4/20
  */
-abstract class BaseDBVMFragment<V : ViewDataBinding, VM : ViewModel> : BaseFragment() {
+abstract class BaseDataBindingVMFragment<V : ViewDataBinding, VM : ViewModel> : BaseFragment() {
 
     lateinit var binding: V
     lateinit var viewModel: VM

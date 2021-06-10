@@ -12,7 +12,7 @@ import androidx.databinding.ViewDataBinding
  * @author sunfusheng
  * @since 2020/4/20
  */
-abstract class BaseDBFragment<V : ViewDataBinding> : BaseFragment() {
+abstract class BaseDataBindingFragment<V : ViewDataBinding> : BaseFragment() {
 
     lateinit var binding: V
 

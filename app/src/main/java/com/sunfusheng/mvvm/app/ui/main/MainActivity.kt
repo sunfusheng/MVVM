@@ -6,10 +6,10 @@ import com.sunfusheng.StickyHeaderDecoration
 import com.sunfusheng.mvvm.app.BR
 import com.sunfusheng.mvvm.app.R
 import com.sunfusheng.mvvm.app.databinding.ActivityMainBinding
-import com.sunfusheng.mvvm.base.BaseDBVMActivity
+import com.sunfusheng.mvvm.base.BaseDataBindingVMActivity
 import com.sunfusheng.mvvm.viewmodel.getViewModel
 
-class MainActivity : BaseDBVMActivity<ActivityMainBinding, MainViewModel>() {
+class MainActivity : BaseDataBindingVMActivity<ActivityMainBinding, MainViewModel>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

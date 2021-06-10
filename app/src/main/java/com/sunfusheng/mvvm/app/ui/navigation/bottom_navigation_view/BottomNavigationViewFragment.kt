@@ -10,11 +10,11 @@ import com.google.android.material.bottomnavigation.BottomNavigationItemView
 import com.google.android.material.bottomnavigation.BottomNavigationMenuView
 import com.sunfusheng.mvvm.app.R
 import com.sunfusheng.mvvm.app.databinding.FragmentBottomNavigationViewBinding
-import com.sunfusheng.mvvm.base.BaseDBFragment
+import com.sunfusheng.mvvm.base.BaseDataBindingFragment
 import com.sunfusheng.mvvm.extension.gone
 import com.sunfusheng.mvvm.extension.visible
 
-class BottomNavigationViewFragment : BaseDBFragment<FragmentBottomNavigationViewBinding>() {
+class BottomNavigationViewFragment : BaseDataBindingFragment<FragmentBottomNavigationViewBinding>() {
 
     private val fragments = arrayListOf<Pair<Int, Fragment>>()
     private val homeFragment by lazy { R.string.tab_home to HomeFragment() }

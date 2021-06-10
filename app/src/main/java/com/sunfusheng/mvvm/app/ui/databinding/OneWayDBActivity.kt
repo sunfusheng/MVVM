@@ -6,7 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import com.sunfusheng.mvvm.app.BR
 import com.sunfusheng.mvvm.app.R
 import com.sunfusheng.mvvm.app.databinding.ActivityOnewayDatabindingBinding
-import com.sunfusheng.mvvm.base.BaseDBVMActivity
+import com.sunfusheng.mvvm.base.BaseDataBindingVMActivity
 import com.sunfusheng.mvvm.viewmodel.BaseViewModel
 import com.sunfusheng.mvvm.viewmodel.getViewModel
 
@@ -14,7 +14,7 @@ import com.sunfusheng.mvvm.viewmodel.getViewModel
  * @author sunfusheng
  * @since 2020/4/14
  */
-class OneWayDBActivity : BaseDBVMActivity<ActivityOnewayDatabindingBinding, UserInfoViewModel>() {
+class OneWayDBActivity : BaseDataBindingVMActivity<ActivityOnewayDatabindingBinding, UserInfoViewModel>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

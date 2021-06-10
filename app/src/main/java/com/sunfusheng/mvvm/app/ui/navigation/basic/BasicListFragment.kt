@@ -5,11 +5,11 @@ import android.view.View
 import com.sunfusheng.mvvm.app.BR
 import com.sunfusheng.mvvm.app.R
 import com.sunfusheng.mvvm.app.databinding.FragmentBasicListBinding
-import com.sunfusheng.mvvm.base.BaseDBVMFragment
+import com.sunfusheng.mvvm.base.BaseDataBindingVMFragment
 import com.sunfusheng.mvvm.viewmodel.BaseViewModel
 import com.sunfusheng.mvvm.viewmodel.getViewModel
 
-class BasicListFragment : BaseDBVMFragment<FragmentBasicListBinding, BasicNavigationViewModel>() {
+class BasicListFragment : BaseDataBindingVMFragment<FragmentBasicListBinding, BasicNavigationViewModel>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

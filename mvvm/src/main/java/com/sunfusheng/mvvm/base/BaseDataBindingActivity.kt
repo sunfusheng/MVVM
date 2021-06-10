@@ -9,16 +9,16 @@ import androidx.databinding.ViewDataBinding
  * @author sunfusheng
  * @since 2020/4/20
  */
-abstract class BaseDBActivity<V : ViewDataBinding> : BaseActivity() {
+abstract class BaseDataBindingActivity<V : ViewDataBinding> : BaseActivity() {
 
     lateinit var binding: V
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        initDBVM()
+        initDataBinding()
     }
 
-    private fun initDBVM() {
+    private fun initDataBinding() {
         binding = DataBindingUtil.setContentView(this, getLayoutId())
         binding.lifecycleOwner = this
     }

@@ -8,7 +8,7 @@ import com.sunfusheng.mvvm.app.R
 import com.sunfusheng.mvvm.app.Warren_Buffett_Avatar
 import com.sunfusheng.mvvm.app.databinding.ActivityBaRvDatabindingBinding
 import com.sunfusheng.mvvm.app.databinding.ItemBindingadapterBinding
-import com.sunfusheng.mvvm.base.BaseDBVMActivity
+import com.sunfusheng.mvvm.base.BaseDataBindingVMActivity
 import com.sunfusheng.mvvm.util.ToastUtil
 import com.sunfusheng.mvvm.viewmodel.BaseViewModel
 import com.sunfusheng.mvvm.viewmodel.getViewModel
@@ -18,7 +18,7 @@ import com.sunfusheng.mvvm.viewmodel.getViewModel
  * @since  2021/02/25
  */
 class BindingAdapterRecyclerViewDBActivity :
-    BaseDBVMActivity<ActivityBaRvDatabindingBinding, BindingAdapterTestVM>() {
+    BaseDataBindingVMActivity<ActivityBaRvDatabindingBinding, BindingAdapterTestVM>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

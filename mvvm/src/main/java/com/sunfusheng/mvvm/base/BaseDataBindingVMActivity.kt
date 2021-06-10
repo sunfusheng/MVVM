@@ -10,17 +10,17 @@ import androidx.lifecycle.ViewModel
  * @author sunfusheng
  * @since 2020/4/20
  */
-abstract class BaseDBVMActivity<V : ViewDataBinding, VM : ViewModel> : BaseActivity() {
+abstract class BaseDataBindingVMActivity<V : ViewDataBinding, VM : ViewModel> : BaseActivity() {
 
     lateinit var binding: V
     lateinit var viewModel: VM
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        initDBVM()
+        initDataBindingVM()
     }
 
-    private fun initDBVM() {
+    private fun initDataBindingVM() {
         binding = DataBindingUtil.setContentView(this, getLayoutId())
         viewModel = createViewModel()
         binding.lifecycleOwner = this

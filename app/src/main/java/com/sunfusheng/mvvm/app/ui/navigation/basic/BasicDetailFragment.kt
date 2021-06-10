@@ -6,10 +6,10 @@ import android.view.View
 import androidx.navigation.fragment.navArgs
 import com.sunfusheng.mvvm.app.R
 import com.sunfusheng.mvvm.app.databinding.FragmentBasicDetailBinding
-import com.sunfusheng.mvvm.base.BaseDBFragment
+import com.sunfusheng.mvvm.base.BaseDataBindingFragment
 import com.sunfusheng.mvvm.util.ToastUtil
 
-class BasicDetailFragment : BaseDBFragment<FragmentBasicDetailBinding>() {
+class BasicDetailFragment : BaseDataBindingFragment<FragmentBasicDetailBinding>() {
 
     private val args: BasicDetailFragmentArgs by navArgs()
 
