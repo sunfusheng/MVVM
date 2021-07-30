@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
  * @since  2021/02/25
  */
 abstract class BaseDataBindingAdapter<T, B : ViewDataBinding> :
-    RecyclerView.Adapter<BaseDataBindingAdapter.DataBindingViewHolder<B>>() {
+        RecyclerView.Adapter<BaseDataBindingAdapter.DataBindingViewHolder<B>>() {
 
     private val data = mutableListOf<T>()
 
@@ -26,10 +26,10 @@ abstract class BaseDataBindingAdapter<T, B : ViewDataBinding> :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DataBindingViewHolder<B> {
         val binding = DataBindingUtil.inflate<B>(
-            LayoutInflater.from(parent.context),
-            getLayoutId(),
-            parent,
-            false
+                LayoutInflater.from(parent.context),
+                getLayoutId(),
+                parent,
+                false
         )
         return DataBindingViewHolder(binding)
     }
@@ -47,5 +47,5 @@ abstract class BaseDataBindingAdapter<T, B : ViewDataBinding> :
     protected abstract fun onBind(binding: B, item: T, position: Int)
 
     open class DataBindingViewHolder<B : ViewDataBinding>(val binding: B) :
-        RecyclerView.ViewHolder(binding.root)
+            RecyclerView.ViewHolder(binding.root)
 }

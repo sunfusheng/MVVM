@@ -22,11 +22,6 @@ class LifecycleHandler : Handler, DefaultLifecycleObserver {
         addObserver()
     }
 
-    constructor(lifecycleOwner: LifecycleOwner, callback: Callback) : super(callback) {
-        this.lifecycleOwner = lifecycleOwner
-        addObserver()
-    }
-
     constructor(lifecycleOwner: LifecycleOwner, looper: Looper, callback: Callback) : super(
         looper,
         callback
