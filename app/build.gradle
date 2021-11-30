@@ -5,6 +5,7 @@ apply plugin: 'androidx.navigation.safeargs.kotlin'
 
 android {
     compileSdkVersion compile_sdk_version
+    buildToolsVersion build_tools_version
     defaultConfig {
         applicationId 'com.sunfusheng.mvvm.app'
         minSdkVersion min_sdk_version
@@ -20,7 +21,7 @@ android {
     }
 
     kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_1_8
+        jvmTarget = "1.8"
     }
 
     buildFeatures {
