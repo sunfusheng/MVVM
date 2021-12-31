@@ -70,7 +70,7 @@ open class BusMutableLiveData<T>(private val key: String) : MutableLiveData<T>()
             val classObserverWrapper: Class<*>? = objectWrapper.javaClass.superclass
             if (classObserverWrapper != null) {
                 val fieldObserverWrapperLastVersion =
-                        classObserverWrapper.getDeclaredField("mLastVersion")
+                    classObserverWrapper.getDeclaredField("mLastVersion")
                 fieldObserverWrapperLastVersion.isAccessible = true
                 val fieldLiveDataVersion = classLiveData.getDeclaredField("mVersion")
                 fieldLiveDataVersion.isAccessible = true

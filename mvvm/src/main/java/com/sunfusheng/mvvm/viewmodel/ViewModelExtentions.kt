@@ -13,15 +13,15 @@ import androidx.lifecycle.ViewModelProvider
  */
 inline fun <reified VM : ViewModel> Context.getViewModel(): VM {
     if (this is FragmentActivity) {
-        return ViewModelProvider(this).get(VM::class.java)
+        return ViewModelProvider(this)[VM::class.java]
     }
     throw IllegalArgumentException("Context is not FragmentActivity!")
 }
 
 inline fun <reified VM : ViewModel> FragmentActivity.getViewModel(): VM {
-    return ViewModelProvider(this).get(VM::class.java)
+    return ViewModelProvider(this)[VM::class.java]
 }
 
 inline fun <reified VM : ViewModel> Fragment.getViewModel(): VM {
-    return ViewModelProvider(this).get(VM::class.java)
+    return ViewModelProvider(this)[VM::class.java]
 }
