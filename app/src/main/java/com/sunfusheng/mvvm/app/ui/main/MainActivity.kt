@@ -12,26 +12,26 @@ import com.sunfusheng.mvvm.viewmodel.getViewModel
 
 class MainActivity : BaseDataBindingVMActivity<ActivityMainBinding, MainViewModel>() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        loadDataSource()
+  override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(savedInstanceState)
+    loadDataSource()
+  }
+
+  private fun loadDataSource() {
+    binding.vRecyclerView.addItemDecoration(StickyHeaderDecoration())
+    val adapter = MainStickyGroupAdapter(this, viewModel.dataSource)
+    binding.vRecyclerView.adapter = adapter
+
+    adapter.setOnItemClickListener { _, item, _, _ ->
+      item.clazz?.run {
+        startActivity(Intent(this@MainActivity, item.clazz))
+      }
     }
+  }
 
-    private fun loadDataSource() {
-        binding.vRecyclerView.addItemDecoration(StickyHeaderDecoration())
-        val adapter = MainStickyGroupAdapter(this, viewModel.dataSource)
-        binding.vRecyclerView.adapter = adapter
+  override fun getLayoutId() = R.layout.activity_main
 
-        adapter.setOnItemClickListener { _, item, _, _ ->
-            item.clazz?.run {
-                startActivity(Intent(this@MainActivity, item.clazz))
-            }
-        }
-    }
+  override fun createViewModel(): MainViewModel = getViewModel()
 
-    override fun getLayoutId() = R.layout.activity_main
-
-    override fun createViewModel(): MainViewModel = getViewModel()
-
-    override fun getVariableId() = BR.viewModel
+  override fun getVariableId() = BR.viewModel
 }

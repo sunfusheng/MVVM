@@ -13,4 +13,6 @@
     <string name="title_twoway_databinding">双向绑定</string>
     <string name="title_bindingadapter_recyclerview_databinding">BindingAdapter + RecyclerView</string>
 
+    <string name="title_simple_motion_layout">简单动画</string>
+
 </resources>
