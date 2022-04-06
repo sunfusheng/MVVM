@@ -11,18 +11,18 @@ import androidx.databinding.ViewDataBinding
  */
 abstract class BaseDataBindingActivity<V : ViewDataBinding> : BaseActivity() {
 
-    lateinit var binding: V
+  lateinit var binding: V
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        initDataBinding()
-    }
+  override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(savedInstanceState)
+    initDataBinding()
+  }
 
-    private fun initDataBinding() {
-        binding = DataBindingUtil.setContentView(this, getLayoutId())
-        binding.lifecycleOwner = this
-    }
+  private fun initDataBinding() {
+    binding = DataBindingUtil.setContentView(this, getLayoutId())
+    binding.lifecycleOwner = this
+  }
 
-    @LayoutRes
-    abstract fun getLayoutId(): Int
+  @LayoutRes
+  abstract fun getLayoutId(): Int
 }

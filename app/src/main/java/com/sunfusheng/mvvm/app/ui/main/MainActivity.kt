@@ -2,7 +2,6 @@ package com.sunfusheng.mvvm.app.ui.main
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.Handler
 import com.sunfusheng.StickyHeaderDecoration
 import com.sunfusheng.mvvm.app.BR
 import com.sunfusheng.mvvm.app.R

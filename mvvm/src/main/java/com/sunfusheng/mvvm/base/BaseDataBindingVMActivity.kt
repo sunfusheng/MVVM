@@ -12,25 +12,25 @@ import androidx.lifecycle.ViewModel
  */
 abstract class BaseDataBindingVMActivity<V : ViewDataBinding, VM : ViewModel> : BaseActivity() {
 
-    lateinit var binding: V
-    lateinit var viewModel: VM
+  lateinit var binding: V
+  lateinit var viewModel: VM
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        initDataBindingVM()
-    }
+  override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(savedInstanceState)
+    initDataBindingVM()
+  }
 
-    private fun initDataBindingVM() {
-        binding = DataBindingUtil.setContentView(this, getLayoutId())
-        viewModel = createViewModel()
-        binding.lifecycleOwner = this
-        binding.setVariable(getVariableId(), viewModel)
-    }
+  private fun initDataBindingVM() {
+    binding = DataBindingUtil.setContentView(this, getLayoutId())
+    viewModel = createViewModel()
+    binding.lifecycleOwner = this
+    binding.setVariable(getVariableId(), viewModel)
+  }
 
-    @LayoutRes
-    abstract fun getLayoutId(): Int
+  @LayoutRes
+  abstract fun getLayoutId(): Int
 
-    abstract fun createViewModel(): VM
+  abstract fun createViewModel(): VM
 
-    abstract fun getVariableId(): Int
+  abstract fun getVariableId(): Int
 }

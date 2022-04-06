@@ -1,7 +1,6 @@
 package com.sunfusheng.mvvm.app
 
 import android.app.Application
-import android.util.Log
 import com.tencent.mmkv.MMKV
 
 /**
@@ -10,8 +9,8 @@ import com.tencent.mmkv.MMKV
  */
 class App : Application() {
 
-    override fun onCreate() {
-        super.onCreate()
-        MMKV.initialize(this)
-    }
+  override fun onCreate() {
+    super.onCreate()
+    MMKV.initialize(this)
+  }
 }

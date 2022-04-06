@@ -14,19 +14,19 @@ import androidx.databinding.ViewDataBinding
  */
 abstract class BaseDataBindingFragment<V : ViewDataBinding> : BaseFragment() {
 
-    lateinit var binding: V
+  lateinit var binding: V
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        binding = DataBindingUtil.inflate(inflater, getLayoutId(), container, false)
-        binding.lifecycleOwner = this
-        return binding.root
-    }
+  override fun onCreateView(
+    inflater: LayoutInflater,
+    container: ViewGroup?,
+    savedInstanceState: Bundle?
+  ): View? {
+    binding = DataBindingUtil.inflate(inflater, getLayoutId(), container, false)
+    binding.lifecycleOwner = this
+    return binding.root
+  }
 
-    @LayoutRes
-    abstract fun getLayoutId(): Int
+  @LayoutRes
+  abstract fun getLayoutId(): Int
 
 }

@@ -12,13 +12,13 @@ import com.bumptech.glide.Glide
 
 @BindingAdapter(value = ["imageUrl", "placeholder", "error"], requireAll = false)
 fun ImageView.loadImage(
-    imageUrl: String,
-    placeholder: Drawable,
-    error: Drawable
+  imageUrl: String,
+  placeholder: Drawable,
+  error: Drawable
 ) {
-    Glide.with(context)
-        .load(imageUrl)
-        .placeholder(placeholder)
-        .error(error)
-        .into(this)
+  Glide.with(context)
+    .load(imageUrl)
+    .placeholder(placeholder)
+    .error(error)
+    .into(this)
 }

@@ -10,84 +10,84 @@ import kotlin.coroutines.CoroutineContext
  * @since 2020/2/29
  */
 open class RequestViewModel : ViewModel() {
-    companion object {
-        const val JOB_TAG = "RequestViewModel.JOB_TAG"
+  companion object {
+    const val JOB_TAG = "RequestViewModel.JOB_TAG"
+  }
+
+  private val mRequestStateMap by lazy { HashMap<String, MutableLiveData<RequestState<*>>>() }
+
+  fun requestState(jobTag: String = JOB_TAG): MutableLiveData<RequestState<*>>? {
+    return mRequestStateMap[jobTag]
+  }
+
+  @Synchronized
+  private fun getRequestStateLiveData(jobTag: String = JOB_TAG): MutableLiveData<RequestState<*>> {
+    var requestState = requestState(jobTag)
+    if (requestState == null) {
+      requestState = MutableLiveData()
+      mRequestStateMap[jobTag] = requestState
     }
+    return requestState
+  }
 
-    private val mRequestStateMap by lazy { HashMap<String, MutableLiveData<RequestState<*>>>() }
+  private fun <Response> requestInternal(apiDSL: RequestDSL<Response>.() -> Unit) {
+    RequestDSL<Response>().apply(apiDSL).launch(viewModelScope)
+  }
 
-    fun requestState(jobTag: String = JOB_TAG): MutableLiveData<RequestState<*>>? {
-        return mRequestStateMap[jobTag]
+  protected fun <Response> request(
+    jobTag: String = JOB_TAG,
+    requestDSL: RequestDSL<Response>.() -> Unit
+  ) {
+    requestInternal<Response> {
+      val invoker = RequestDSL<Response>().apply(requestDSL)
+      val requestState = getRequestStateLiveData(jobTag)
+
+      onStart {
+        invoker.onStart?.invoke()
+        requestState.value = OnStart<Response>()
+      }
+      onRequest {
+        invoker.onRequest()
+      }
+      onResponse { response ->
+        invoker.onResponse?.invoke(response)
+        requestState.value = OnResponse(response)
+      }
+      onError { exception ->
+        invoker.onError?.invoke(exception)
+        requestState.value = OnError<Response>(exception)
+      }
+      onFinally {
+        invoker.onFinally?.invoke()
+        requestState.value = OnFinally<Response>()
+      }
     }
+  }
 
-    @Synchronized
-    private fun getRequestStateLiveData(jobTag: String = JOB_TAG): MutableLiveData<RequestState<*>> {
-        var requestState = requestState(jobTag)
-        if (requestState == null) {
-            requestState = MutableLiveData()
-            mRequestStateMap[jobTag] = requestState
-        }
-        return requestState
+  protected fun <Response> requestLiveData(
+    context: CoroutineContext = Dispatchers.Main,
+    timeoutInMs: Long = 5000L,
+    request: suspend () -> Response
+  ): LiveData<RequestState<Response>> {
+    return liveData(context, timeoutInMs) {
+      emit(OnStart())
+      try {
+        emit(withContext(Dispatchers.IO) {
+          OnResponse(request())
+        })
+      } catch (e: Exception) {
+        e.printStackTrace()
+        emit(OnError<Response>(e))
+      } finally {
+        emit(OnFinally())
+      }
     }
+  }
 
-    private fun <Response> requestInternal(apiDSL: RequestDSL<Response>.() -> Unit) {
-        RequestDSL<Response>().apply(apiDSL).launch(viewModelScope)
-    }
-
-    protected fun <Response> request(
-        jobTag: String = JOB_TAG,
-        requestDSL: RequestDSL<Response>.() -> Unit
-    ) {
-        requestInternal<Response> {
-            val invoker = RequestDSL<Response>().apply(requestDSL)
-            val requestState = getRequestStateLiveData(jobTag)
-
-            onStart {
-                invoker.onStart?.invoke()
-                requestState.value = OnStart<Response>()
-            }
-            onRequest {
-                invoker.onRequest()
-            }
-            onResponse { response ->
-                invoker.onResponse?.invoke(response)
-                requestState.value = OnResponse(response)
-            }
-            onError { exception ->
-                invoker.onError?.invoke(exception)
-                requestState.value = OnError<Response>(exception)
-            }
-            onFinally {
-                invoker.onFinally?.invoke()
-                requestState.value = OnFinally<Response>()
-            }
-        }
-    }
-
-    protected fun <Response> requestLiveData(
-        context: CoroutineContext = Dispatchers.Main,
-        timeoutInMs: Long = 5000L,
-        request: suspend () -> Response
-    ): LiveData<RequestState<Response>> {
-        return liveData(context, timeoutInMs) {
-            emit(OnStart())
-            try {
-                emit(withContext(Dispatchers.IO) {
-                    OnResponse(request())
-                })
-            } catch (e: Exception) {
-                e.printStackTrace()
-                emit(OnError<Response>(e))
-            } finally {
-                emit(OnFinally())
-            }
-        }
-    }
-
-    override fun onCleared() {
-        mRequestStateMap.clear()
-        super.onCleared()
-    }
+  override fun onCleared() {
+    mRequestStateMap.clear()
+    super.onCleared()
+  }
 }
 
 sealed class RequestState<T>
