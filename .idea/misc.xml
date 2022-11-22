@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="app/src/main/res/layout/activity_basic_navigation.xml" value="0.22407407407407406" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.22407407407407406" />
+        <entry key="app/src/main/res/layout/fragment_basic_list.xml" value="0.22407407407407406" />
+        <entry key="app/src/main/res/layout/fragment_main.xml" value="0.22407407407407406" />
+      </map>
+    </option>
+  </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
 </project>
